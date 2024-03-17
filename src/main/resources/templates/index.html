@@ -1,0 +1,23 @@
+<!Doctype html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+    <head>
+        <div th:replace="header_index :: head"></div>
+        <title>SnapStack</title>
+        <link th:href="@{/css/style_layout_index.css}" rel="stylesheet">
+    </head>
+    <body>
+        <div th:replace="header_index :: header"></div>
+        <h1 id="heading">Memories</h1>
+        <main class="grid">
+            <images th:each="image : ${allImages}">
+                <article>
+<!--                    <img th:src="'data:image/jpeg;base64,'+${image.imageFile}"/>-->
+                    <img th:src="@{${image.imageFile}}" alt="Description of the image"/>
+                    <div class="text">
+                        <h3>by <span th:text="${image.getUser.username}"></span></h3>
+                    </div>
+                </article>
+            </images>
+        </main>
+    </body>
+</html>

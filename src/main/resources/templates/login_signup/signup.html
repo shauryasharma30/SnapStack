@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+    <head>
+        <div th:replace="header_index :: head"></div>
+        <title>SnapStack</title>
+        <link th:href="@{/css/style_form_login_signup.css}" rel="stylesheet">
+    </head>
+    <body onload="disableSignupBtn()">
+        <div th:replace="header_index :: header"></div>
+        <h1 id="heading">SignUp</h1>
+        <form id="form" method="post" th:object="${user}" th:action="@{/login_signup/signup}">
+            <label for="username">Username:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="text" th:field="${user.username}" id="username" required /><br><br>
+
+            <label for="email">Email:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="email" th:field="${user.userProfile.email}" id="email" required /><br><br>
+
+            <label for="password">Password:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="password" th:field="${user.password}" id="password" required /><br><br>
+
+            <label for="mobile">Mobile No:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="number" th:field="${user.userProfile.mobileNumber}" id="mobile" name="mobile" required /><br><br>
+
+            <label for="address">Address:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="text" th:field="${user.userProfile.address}" id="address" name="address" /><br/><br/><br>
+
+            <label for="gender1">Male</label>
+            <input type="radio" id="gender1" name="radio" th:field="${user.userProfile.gender}" value="Male" th:checked="${gender == 1}" required />&nbsp;&nbsp;
+            <label for="gender2">Female</label>
+            <input type="radio" id="gender2" name="radio" th:field="${user.userProfile.gender}" value="Female" th:checked="${gender == 2}" required />&nbsp;&nbsp;
+            <label for="gender3">Others</label>
+            <input type="radio" id="gender3" name="radio" th:field="${user.userProfile.gender}" value="Others" th:checked="${gender == 3}" required /><br><br>
+
+            <input id="sub" type="submit" value="SignUp" />
+        </form>
+    </body>
+    <script th:src="@{/js/script_links.js}"></script>
+</html>

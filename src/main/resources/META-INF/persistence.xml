@@ -1,0 +1,29 @@
+<!--Give the configurations to JPA-->
+
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+            http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd" >
+<persistence-unit name="imageapp">
+    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+    <properties>
+        <!-- Use MySQL JDBC Driver -->
+        <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+        <!-- MySQL Connection URL -->
+        <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/imageapp?useSSL=false&amp;serverTimezone=UTC"/>
+        <!-- MySQL User -->
+        <property name="javax.persistence.jdbc.user" value=""/>
+        <!-- MySQL Password -->
+        <property name="javax.persistence.jdbc.password" value=""/>
+        <!-- MySQL Dialect -->
+        <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
+        <!-- Disable automatic use of JDBC metadata -->
+        <property name="hibernate.temp.use_jdbc_metadata_defaults" value="false"/>
+        <!-- Enable SQL logging -->
+        <property name="hibernate.show_sql" value="true"/>
+        <!-- Automatically update the schema based on entity mappings -->
+<!--        <property name="hibernate.hbm2ddl.auto" value="update"/>-->
+    </properties>
+</persistence-unit>
+</persistence>

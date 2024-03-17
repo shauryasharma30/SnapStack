@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+    <head th:fragment="head">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=1024">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@700&family=Gochi+Hand&family=Itim&family=Permanent+Marker&display=swap" rel="stylesheet">
+        <link th:href="@{/css/style_header.css}" rel="stylesheet">
+    </head>
+    <body>
+        <div th:fragment="header" th:remove="tag">
+            <p id="title">SnapStack</p>
+            <div class="links">
+                <a id="loginBtn" href="/login_signup/login">LOGIN</a>
+                <a id="signupBtn" href="/login_signup/signup">SIGNUP</a>
+                <a id="homeBtn" href="/">HOME</a>
+            </div>
+        </div>
+    </body>
+</html>

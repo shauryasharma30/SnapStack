@@ -1,0 +1,50 @@
+#heading {
+    margin-top: 110px;
+    font-size: 60px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+#form {
+    text-align: center;
+    margin-top: 50px;
+}
+label {
+    font-size: 22px;
+}
+input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid black;
+    font-size: 18px;
+    color: darkred;
+    word-spacing: 2px;
+    letter-spacing: 2px;
+}
+input:focus {
+    outline: none;
+}
+#form #sub {
+    margin-top: 25px;
+    font-weight: bold;
+}
+#form #sub:hover {
+    color: blueviolet;
+    cursor: pointer;
+}
+#form #img_title {
+    width: 26%;
+}
+#form #img_description {
+    width: 42%;
+}
+#form #img_tags {
+    width: 25%;
+}
+#form #image {
+    border: none;
+    word-spacing: 1px;
+    letter-spacing: 1px;
+    margin-left: 130px;
+    margin-top: 20px;
+    font-size: 16px;
+}

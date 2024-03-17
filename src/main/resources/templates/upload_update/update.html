@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+    <head>
+        <div th:replace="header_main :: head"></div>
+        <title>SnapStack</title>
+        <link th:href="@{/css/style_form_update_upload.css}" rel="stylesheet">
+    </head>
+    <body onload="disableUploadBtn()">
+        <div th:replace="header_main :: header"></div>
+        <h1 id="heading">Update Image</h1>
+        <form id="form" onsubmit="return fileValidate()" th:method="put" th:object="${imgData}" th:action="@{/updateImage(imageId=${imgData.id})}" enctype="multipart/form-data">
+            <label for="img_title">Image Title:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="text" id="img_title" name="title" th:value="${imgData.title}" required /><br><br><br>
+
+            <label for="img_description">Description:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="text" id="img_description" name="description" th:value="${imgData.description}" required /><br><br><br>
+
+            <label for="img_tags">Tags:</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="text" id="img_tags" name="tags" th:value="${imgData.tags}" required /><br><br>
+
+            <input type="file" id="image" accept="image/*" name="ufile" required /><br><br>
+
+            <input id="sub" type="submit" value="Update" />
+        </form>
+        <script th:src="@{/js/script_links.js}"></script>
+    </body>
+</html>
