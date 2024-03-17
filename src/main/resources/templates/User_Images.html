@@ -1,0 +1,38 @@
+<!Doctype html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+    <head>
+        <div th:replace="header_main :: head"></div>
+        <title>SnapStack</title>
+        <link th:href="@{/css/style_layout_userImages.css}" rel="stylesheet">
+    </head>
+    <body>
+        <div th:replace="header_main :: header"></div>
+        <h1 id="heading">Your Uploaded Pics</h1>
+        <main class="grid">
+            <images th:each="image : ${userImages}">
+                <article>
+                    <img th:src="@{${image.imageFile}}"/>
+                    <div class="text">
+                        <h3 id="imgName" th:text="${image.title}"></h3>
+                        <div style="display: none" th:id="'hideDesc_id' + ${image.id}">
+                            <p id="desc" class="info" th:text="${image.description}"></p>
+                            <p class="info"><u>Tags</u>: <span th:text="${image.tags}"></span></p>
+                        </div>
+                        <p id="postDate" class="info"><u>Posted On</u>:&nbsp;&nbsp;<span th:text="${image.date}"></span></p>
+                        <div id="updatedPostDate" class="info" th:if="${image.updatedDate != null}">
+                            <p><u>Updated On</u>:&nbsp;&nbsp;<span th:text="${image.updatedDate}"></span></p>
+                        </div>
+                    </div>
+                    <div id="buttons">
+                        <a th:href="@{/updateImage(imageId=${image.id})}"><button id="btn1">Update Pic</button></a>
+                        <form onsubmit="return confirmDelete()" th:action="@{/deleteImage(imageId=${image.id})}" th:method="delete">
+                            <button type="submit" id="btn2">Delete Pic</button>
+                        </form>
+                        <button th:onclick="|toggleDesc('${image.id}')|" id="btn3">Show Description</button>
+                    </div>
+                </article>
+            </images>
+        </main>
+    </body>
+    <script th:src="@{/js/script_links.js}"></script>
+</html>

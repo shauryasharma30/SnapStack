@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+    <head th:fragment="head">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=1024">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@700&family=Gochi+Hand&family=Itim&family=Permanent+Marker&display=swap" rel="stylesheet">
+        <link th:href="@{/css/style_header.css}" rel="stylesheet">
+    </head>
+    <body>
+        <div th:fragment="header" th:remove="tag">
+            <p id="title">SnapStack</p>
+            <div class="links">
+                <a id="userName">Hi <span th:text="${session.usr}" th:unless="${session == null}"></span></a>
+                <a id="logoutBtn" href="/logout">Logout</a>
+                <a id="uploadBtn" href="/upload_update/upload">Upload Image</a>
+                <a id="homeBtn" href="/User_Images">Home</a>
+            </div>
+            <hr class="line">
+        </div>
+    </body>
+</html>
